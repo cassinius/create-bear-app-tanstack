@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-start-starter",
+  "name": "create-b-app",
   "type": "module",
   "scripts": {
     "dev": "COMPATIBILITY_DATE=2024-11-02 vinxi dev --port 3033",

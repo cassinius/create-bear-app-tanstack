@@ -130,6 +130,11 @@ dist
 .pnp.*
 
 # Output
+bin
+build
+dist
+obj
+.output
 .vercel
 .vinxi
 count.txt
