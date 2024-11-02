@@ -1,6 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 
 import ServerCounter from "../components/counterServer";
+import ClientCounter from "../components/counterClient";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -18,6 +19,10 @@ function Index() {
       </h1>
 
       <ServerCounter />
+
+      <ClientCounter />
+
+      <ClientCounter increment={false} />
 
       {/* Invalidate Route only re-runs the loader function, so it is useless here */}
       {/* <button className="btn" onClick={() => router.invalidate()}>

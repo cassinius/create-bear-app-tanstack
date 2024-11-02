@@ -28,16 +28,19 @@ export default function ServerCounter() {
   });
 
   return (
-    <button
-      type="button"
-      className="mt-4 btn btn-secondary btn-outline"
-      onClick={() => {
-        updateCount(1).then((newCount) => {
-          setCount(newCount);
-        });
-      }}
-    >
-      Add 1 to {count} ?
-    </button>
+    <div className="mt-4">
+      <p className="text-lg text-slate-200">Server-side counter</p>
+      <button
+        type="button"
+        className="btn btn-secondary btn-outline"
+        onClick={() => {
+          updateCount(1).then((newCount) => {
+            setCount(newCount);
+          });
+        }}
+      >
+        Add 1 to {count} ?
+      </button>
+    </div>
   );
 }

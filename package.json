@@ -10,6 +10,7 @@
   "dependencies": {
     "@tanstack/react-router": "^1.78.2",
     "@tanstack/start": "^1.78.2",
+    "jotai": "^2.10.1",
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "tailwindcss-animate": "^1.0.7",
