@@ -4,7 +4,7 @@ import { cleanup } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import Counter from "@components/counterClient";
+import Counter from "@components/CounterClient";
 
 // NOTE: without Jotai providers / stores, the tests will use the
 // NOTE: same set of atoms without resetting them between tests

@@ -2,8 +2,8 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useAtomValue } from "jotai";
 
 import { countTwiceAtom } from "@stores/counter";
-import ServerCounter from "@/components/counterServer";
-import ClientCounter from "@/components/counterClient";
+import CounterServer from "@/components/CounterServer";
+import CounterClient from "@components/CounterClient";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -17,15 +17,15 @@ function Index() {
 
   return (
     <div className="p-2">
-      <h1 className="app-wrap text-3xl text-primary">
+      <h1 className="app-wrap text-3xl text-info">
         Your brand new Tanstack-Start-React19 app
       </h1>
 
-      <ServerCounter />
+      <CounterServer />
 
-      <ClientCounter />
+      <CounterClient />
 
-      <ClientCounter increment={false} />
+      <CounterClient increment={false} />
 
       <p className="mt-4 text-warning italic font-semibold">
         Twice the count: {countTwice}

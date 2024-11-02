@@ -1,9 +1,8 @@
 {
   "name": "tanstack-start-starter",
-  "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
+    "dev": "COMPATIBILITY_DATE=2024-11-02 vinxi dev --port 3033",
     "build": "vinxi build",
     "start": "vinxi start",
     "test": "vitest"
@@ -12,8 +11,8 @@
     "@tanstack/react-router": "^1.78.2",
     "@tanstack/start": "^1.78.2",
     "jotai": "^2.10.1",
-    "react": "19.0.0-rc.0",
-    "react-dom": "19.0.0-rc.0",
+    "react": "^19.0.0-rc-7c8e5e7a-20241101",
+    "react-dom": "^19.0.0-rc-7c8e5e7a-20241101",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "^0.4.3"
   },
