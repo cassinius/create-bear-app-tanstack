@@ -5,7 +5,8 @@
     "dev": "COMPATIBILITY_DATE=2024-11-02 vinxi dev --port 3033",
     "build": "vinxi build",
     "start": "vinxi start",
-    "test": "vitest"
+    "test": "vitest",
+    "pm2:deploy": "PORT=1689 pm2 start -i max --name=create-b-app .output/server/index.mjs"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.78.2",

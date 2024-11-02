@@ -10,6 +10,7 @@ import type { ReactNode } from "react";
 import appCss from "../styles/app.css?url";
 
 export const Route = createRootRoute({
+  component: RootComponent,
   meta: () => [
     {
       charSet: "utf-8",
@@ -23,7 +24,6 @@ export const Route = createRootRoute({
     },
   ],
   links: () => [{ rel: "stylesheet", href: appCss }],
-  component: RootComponent,
   scripts: () =>
     import.meta.env.DEV
       ? [

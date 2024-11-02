@@ -3,6 +3,9 @@ import { defineConfig } from "@tanstack/start/config";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  // tsr: {
+  //   routesDirectory: "app/routes",
+  // },
   // react: {
   //   include: [new RegExp("app/.*/*.tsx")],
   // },
