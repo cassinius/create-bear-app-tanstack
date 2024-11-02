@@ -6,13 +6,15 @@
     "target": "ES2022",
     "skipLibCheck": true,
     "strictNullChecks": true,
+    "lib": ["ESNext", "DOM"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["app/components/*"],
       "@routes/*": ["app/routes/*"],
       "@stores/*": ["app/stores/*"],
       "@styles/*": ["app/styles/*"],
-      "@/*": ["app/*"]
+      "@/*": ["app/*"],
+      "~/*": ["test/*"]
     }
   }
 }

@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [
       tsConfigPaths({
-        root: './',
+        root: "./",
         // projects: ["./tsconfig.json"],
       }),
     ],
