@@ -23,21 +23,21 @@ const getCount = createServerFn("GET", () => {
 export default function ServerCounter() {
   const [count, setCount] = useState(0);
   getCount().then((count) => {
-    // component re-renders on state change (old-style React)
-    console.log("setting count", count);
+    console.log("setting count on re-render (old-style React)", count);
     setCount(count);
   });
 
   return (
     <button
       type="button"
+      className="mt-4 btn btn-secondary btn-outline"
       onClick={() => {
         updateCount(1).then((newCount) => {
           setCount(newCount);
         });
       }}
     >
-      Add 1 to {count}?
+      Add 1 to {count} ?
     </button>
   );
 }

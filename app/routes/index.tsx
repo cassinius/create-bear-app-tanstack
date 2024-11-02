@@ -12,8 +12,10 @@ function Index() {
   // const state = Route.useLoaderData();
 
   return (
-    <div className="app-wrap">
-      <h1>Your brand new Tanstack-Start-React19 app</h1>
+    <div className="p-2">
+      <h1 className="app-wrap text-3xl text-primary">
+        Your brand new Tanstack-Start-React19 app
+      </h1>
 
       <ServerCounter />
 
