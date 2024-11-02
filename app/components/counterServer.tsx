@@ -1,7 +1,6 @@
-// app/routes/index.tsx
 import * as fs from "node:fs";
-import { createFileRoute, Router, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
+import { useState } from "react";
 
 const filePath = "count.txt";
 
@@ -11,34 +10,34 @@ async function readCount() {
   );
 }
 
+const updateCount = createServerFn("POST", async (addBy: number) => {
+  const count = await readCount();
+  await fs.promises.writeFile(filePath, `${count + addBy}`);
+  return readCount();
+});
+
 const getCount = createServerFn("GET", () => {
   return readCount();
 });
 
-const updateCount = createServerFn("POST", async (addBy: number) => {
-  const count = await readCount();
-  await fs.promises.writeFile(filePath, `${count + addBy}`);
-});
-
-export const Route = createFileRoute("/counterServer")({
-  component: CounterServer,
-  loader: async () => await getCount(),
-});
-
-function CounterServer() {
-  const router: ReturnType<typeof useRouter> = useRouter();
-  const state = Route.useLoaderData();
+export default function ServerCounter() {
+  const [count, setCount] = useState(0);
+  getCount().then((count) => {
+    // component re-renders on state change (old-style React)
+    console.log("setting count", count);
+    setCount(count);
+  });
 
   return (
     <button
       type="button"
       onClick={() => {
-        updateCount(1).then(() => {
-          router.invalidate();
+        updateCount(1).then((newCount) => {
+          setCount(newCount);
         });
       }}
     >
-      Add 1 to {state}?
+      Add 1 to {count}?
     </button>
   );
 }

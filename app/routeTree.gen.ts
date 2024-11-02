@@ -11,16 +11,9 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as CounterServerImport } from './routes/counterServer'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const CounterServerRoute = CounterServerImport.update({
-  id: '/counterServer',
-  path: '/counterServer',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,13 +32,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/counterServer': {
-      id: '/counterServer'
-      path: '/counterServer'
-      fullPath: '/counterServer'
-      preLoaderRoute: typeof CounterServerImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -53,37 +39,32 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/counterServer': typeof CounterServerRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/counterServer': typeof CounterServerRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/counterServer': typeof CounterServerRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/counterServer'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/counterServer'
-  id: '__root__' | '/' | '/counterServer'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CounterServerRoute: typeof CounterServerRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CounterServerRoute: CounterServerRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +77,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/counterServer"
+        "/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/counterServer": {
-      "filePath": "counterServer.tsx"
     }
   }
 }
