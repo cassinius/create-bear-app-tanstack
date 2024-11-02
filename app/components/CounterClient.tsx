@@ -7,7 +7,7 @@ export default function ClientCounter({ increment = true }) {
   return (
     <div className="mt-4">
       <p className="text-lg text-slate-200">
-        Client-side count {increment ? "in" : "de"}crementor
+        Client-side count {increment ? "IN-" : "DE-"}crementor
       </p>
 
       <div className="flex flex-row justify-start align-middle">

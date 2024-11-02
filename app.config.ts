@@ -5,7 +5,7 @@ import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   // react: {
-  //   include: [new RegExp("app/.*.tsx")],
+  //   include: [new RegExp("app/.*/*.tsx")],
   // },
   vite: {
     plugins: [
@@ -17,5 +17,10 @@ export default defineConfig({
       //   include: ["app/**/*.tsx"],
       // }),
     ],
+  },
+  server: {
+    watchOptions: {
+      useFsEvents: true,
+    },
   },
 });

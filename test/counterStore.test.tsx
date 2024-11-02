@@ -1,4 +1,4 @@
-import { expect, describe, it, afterEach, beforeEach } from "vitest";
+import { expect, describe, it, beforeEach } from "vitest";
 import { cleanup } from "@testing-library/react";
 
 import { render, screen } from "@testing-library/react";
@@ -15,6 +15,9 @@ describe("Counter tests", () => {
     cleanup();
   });
 
+  /**
+   *
+   */
   it("should increment counter", async () => {
     // Arrange
     render(<Counter />);
@@ -27,6 +30,9 @@ describe("Counter tests", () => {
     expect(counter.textContent).toEqual("-41");
   });
 
+  /**
+   *
+   */
   it("should decrement counter", async () => {
     render(<Counter increment={false} />);
 

@@ -11,8 +11,8 @@
     "@tanstack/react-router": "^1.78.2",
     "@tanstack/start": "^1.78.2",
     "jotai": "^2.10.1",
-    "react": "^19.0.0-rc-7c8e5e7a-20241101",
-    "react-dom": "^19.0.0-rc-7c8e5e7a-20241101",
+    "react": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "^0.4.3"
   },

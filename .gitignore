@@ -129,6 +129,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Output
+.vercel
+.vinxi
+count.txt
+
 # IDEs
 .idea
 

@@ -24,6 +24,20 @@ export const Route = createRootRoute({
   ],
   links: () => [{ rel: "stylesheet", href: appCss }],
   component: RootComponent,
+  scripts: () =>
+    import.meta.env.DEV
+      ? [
+          {
+            type: "module",
+            children: `
+              import RefreshRuntime from "/_build/@react-refresh";
+              RefreshRuntime.injectIntoGlobalHook(window);
+              window.$RefreshReg$ = () => {};
+              window.$RefreshSig$ = () => (type) => type;
+            `,
+          },
+        ]
+      : [],
 });
 
 function RootComponent() {
