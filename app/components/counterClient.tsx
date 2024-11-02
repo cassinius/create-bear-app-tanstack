@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { countAtom } from "../stores/counter";
+import { countAtom } from "@stores/counter";
 
 export default function ClientCounter({ increment = true }) {
   const [count, setCount] = useAtom(countAtom);
@@ -14,6 +14,8 @@ export default function ClientCounter({ increment = true }) {
         className="btn btn-info btn-outline"
         onClick={() => {
           setCount((c) => (increment ? c + 1 : c - 1));
+          // NOTE: works in this scenario, count is not 'frozen' in the closure..!?
+          // setCount(increment ? count + 1 : count - 1);
         }}
       >
         {count} {increment ? " ++" : " --"}

@@ -1,7 +1,9 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { useAtomValue } from "jotai";
 
-import ServerCounter from "../components/counterServer";
-import ClientCounter from "../components/counterClient";
+import { countTwiceAtom } from "@stores/counter";
+import ServerCounter from "@/components/counterServer";
+import ClientCounter from "@/components/counterClient";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -11,6 +13,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   // const router = useRouter();
   // const state = Route.useLoaderData();
+  const countTwice = useAtomValue(countTwiceAtom);
 
   return (
     <div className="p-2">
@@ -23,6 +26,10 @@ function Index() {
       <ClientCounter />
 
       <ClientCounter increment={false} />
+
+      <p className="mt-4 text-warning italic font-semibold">
+        Twice the count: {countTwice}
+      </p>
 
       {/* Invalidate Route only re-runs the loader function, so it is useless here */}
       {/* <button className="btn" onClick={() => router.invalidate()}>
