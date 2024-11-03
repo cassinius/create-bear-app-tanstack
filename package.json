@@ -1,12 +1,12 @@
 {
   "name": "create-b-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "bin": {
     "create-b-app": "./tasks/create-b-app.js"
   },
   "scripts": {
-    "dev": "COMPATIBILITY_DATE=2024-11-02 vinxi dev --port 3033",
+    "dev": "vinxi dev --port 3033",
     "build": "vinxi build",
     "start": "vinxi start",
     "test": "vitest run",
