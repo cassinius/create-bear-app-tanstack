@@ -139,6 +139,12 @@ obj
 .vinxi
 count.txt
 
+# Package lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
 # IDEs
 .idea
 

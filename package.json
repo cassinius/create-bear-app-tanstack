@@ -1,11 +1,17 @@
 {
   "name": "create-b-app",
+  "version": "0.1.0",
   "type": "module",
+  "bin": {
+    "create-b-app": "./tasks/create-b-app.js"
+  },
   "scripts": {
     "dev": "COMPATIBILITY_DATE=2024-11-02 vinxi dev --port 3033",
     "build": "vinxi build",
     "start": "vinxi start",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:dev": "vitest dev",
+    "test:bench": "vitest bench",
     "pm2:deploy": "PORT=1689 pm2 start -i max --name=create-b-app .output/server/index.mjs"
   },
   "dependencies": {
@@ -14,6 +20,7 @@
     "jotai": "^2.10.1",
     "react": "^19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
+    "rimraf": "^6.0.1",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "^0.4.3"
   },
