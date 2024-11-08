@@ -17,9 +17,7 @@ function Index() {
 
   return (
     <div className="p-2">
-      <h1 className="app-wrap text-3xl text-info">
-        Your brand new Tanstack-Start-React19 app
-      </h1>
+      <h1 className="app-wrap text-3xl text-info">The bear is alive and steppin' for a fight!</h1>
 
       <CounterServer />
 
@@ -27,9 +25,7 @@ function Index() {
 
       <CounterClient increment={false} />
 
-      <p className="mt-4 text-warning italic font-semibold">
-        Twice the count: {countTwice}
-      </p>
+      <p className="mt-4 text-warning italic font-semibold">Twice the count: {countTwice}</p>
 
       {/* Invalidate Route only re-runs the loader function, so it is useless here */}
       {/* <button className="btn" onClick={() => router.invalidate()}>
