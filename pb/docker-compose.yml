@@ -1,0 +1,12 @@
+services:
+  pb-bear:
+    image: pb-bear-image
+    container_name: pb-bear
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "unless-stopped"
+    ports:
+      - "2511:2511"
+    volumes:
+      - ./pb_data:/pb/pb_data

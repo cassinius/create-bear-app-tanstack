@@ -150,3 +150,7 @@ bun.lockb
 
 # OS
 .DS_Store
+
+# Pocketbase
+pb/pb-bear
+pb/pb_data

@@ -6,13 +6,17 @@
     "create-b-app": "./tasks/create-b-app.js"
   },
   "scripts": {
-    "dev": "vinxi dev --port 3033",
+    "dev": "vinxi dev --port 2512",
     "build": "vinxi build",
-    "start": "vinxi start",
+    "start": "npm run pb:start && vinxi start",
     "test": "vitest run",
     "test:dev": "vitest dev",
     "test:bench": "vitest bench",
-    "pm2:deploy": "PORT=1689 pm2 start -i max --name=create-b-app .output/server/index.mjs"
+    "pm2:deploy": "PORT=1689 pm2 start -i max --name=create-b-app .output/server/index.mjs",
+    "pb:build": "cd pb && CGO_ENABLED=0 go build",
+    "pb:serve": "npm run pb:build && ./pb/pb-bear serve",
+    "pb:start": "npm run pb:build && cd pb && docker compose up -d --build pb-bear",
+    "pb:stop": "cd pb && docker compose down"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.78.2",
