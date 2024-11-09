@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { pb } from "@db/pb";
@@ -22,6 +22,11 @@ const getPbHealth = createServerFn("GET", async () => {
 
 export default function PocketUsers() {
   const health = Route.useLoaderData();
+
+  // const [health, setHealth] = useState<any>(null);
+  // useEffect(() => {
+  //   getPbHealth().then((health) => setHealth(health));
+  // }, []);
 
   return (
     <div className="pb-users p-4">
