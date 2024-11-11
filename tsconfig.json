@@ -11,12 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["app/components/*"],
-      "@routes/*": ["app/routes/*"],
-      "@stores/*": ["app/stores/*"],
-      "@styles/*": ["app/styles/*"],
-      "@utils/*": ["app/utils/*"],
-      "@db/*": ["app/db/*"],
       "@/*": ["app/*"],
       "~/*": ["test/*"]
     }

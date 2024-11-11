@@ -29,7 +29,7 @@ export default function ServerCounter() {
 
   return (
     <div className="mt-4">
-      <p className="text-lg text-slate-200">Server-side counter</p>
+      <p className="text-lg text-slate-200">Server-side counter (persistent)</p>
       <button
         type="button"
         className="btn btn-secondary btn-outline"

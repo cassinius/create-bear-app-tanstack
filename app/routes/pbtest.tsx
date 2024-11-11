@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
-import { pb } from "@db/pb";
+import { pb } from "@/db/pb";
 
 export const Route = createFileRoute("/pbtest")({
   component: PocketUsers,

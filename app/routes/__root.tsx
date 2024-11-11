@@ -1,8 +1,4 @@
-import {
-  Outlet,
-  ScrollRestoration,
-  createRootRoute,
-} from "@tanstack/react-router";
+import { Outlet, ScrollRestoration, createRootRoute } from "@tanstack/react-router";
 import { Body, Head, Html, Meta, Scripts } from "@tanstack/start";
 import type { ReactNode } from "react";
 
@@ -38,6 +34,9 @@ export const Route = createRootRoute({
           },
         ]
       : [],
+  notFoundComponent: () => (
+    <div className="text-6xl text-red-500 font-bold text-center my-[40%]">404 Not Found</div>
+  ),
 });
 
 function RootComponent() {

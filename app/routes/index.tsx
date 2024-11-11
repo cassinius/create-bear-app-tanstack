@@ -1,9 +1,9 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useAtomValue } from "jotai";
 
-import { countTwiceAtom } from "@stores/counter";
+import { countTwiceAtom } from "@/stores/counter";
 import CounterServer from "@/components/CounterServer";
-import CounterClient from "@components/CounterClient";
+import CounterClient from "@/components/CounterClient";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,6 +26,12 @@ function Index() {
       <CounterClient increment={false} />
 
       <p className="mt-4 text-warning italic font-semibold">Twice the count: {countTwice}</p>
+
+      <p className="mt-4">
+        <a href="/pbtest" className="text-primary underline">
+          Check Pocketbase health (start with `npm run pb:serve` first)
+        </a>
+      </p>
 
       {/* Invalidate Route only re-runs the loader function, so it is useless here */}
       {/* <button className="btn" onClick={() => router.invalidate()}>
