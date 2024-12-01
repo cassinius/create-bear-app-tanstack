@@ -9,13 +9,13 @@ export const Route = createFileRoute("/pbtest")({
 });
 
 // TODO - we probably need to be authenticated for this to work.
-const getPbUsers = createServerFn("GET", async () => {
+const getPbUsers = createServerFn({ method: "GET" }).handler(async () => {
   const users = await pb.collection("users").getList();
   console.log({ users }, users.items.length);
   return users;
 });
 
-const getPbHealth = createServerFn("GET", async () => {
+const getPbHealth = createServerFn({ method: "GET" }).handler(async () => {
   const health = await pb.health.check();
   return health;
 });

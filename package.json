@@ -19,9 +19,9 @@
     "pb:stop": "cd pb && docker compose down"
   },
   "dependencies": {
-    "@tanstack/react-router": "1.79.0",
-    "@tanstack/start": "1.79.0",
-    "@tanstack/start-vite-plugin": "1.79.0",
+    "@tanstack/react-router": "^1.85.0",
+    "@tanstack/start": "^1.85.0",
+    "@tanstack/start-vite-plugin": "^1.82.5",
     "eventsource": "^2.0.2",
     "jotai": "^2.10.3",
     "pocketbase": "^0.21.5",
