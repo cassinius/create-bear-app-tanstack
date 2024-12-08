@@ -4,19 +4,25 @@ import { useState } from "react";
 
 const filePath = "count.txt";
 
+type CountData = {
+  addBy: number;
+}
+
 async function readCount() {
   return parseInt(
     await fs.promises.readFile(filePath, "utf-8").catch(() => "0")
   );
 }
 
-const updateCount = createServerFn("POST", async (addBy: number) => {
-  const count = await readCount();
-  await fs.promises.writeFile(filePath, `${count + addBy}`);
-  return readCount();
-});
+const updateCount = createServerFn({ method: "POST" })
+  .validator((countData: unknown): CountData => countData as CountData)
+  .handler(async ({ data }) => {
+    const count = await readCount();
+    await fs.promises.writeFile(filePath, `${count + data.addBy}`);
+    return readCount();
+  });
 
-const getCount = createServerFn("GET", () => {
+const getCount = createServerFn({ method: "GET" }).handler(() => {
   return readCount();
 });
 
@@ -34,7 +40,7 @@ export default function ServerCounter() {
         type="button"
         className="btn btn-secondary btn-outline"
         onClick={() => {
-          updateCount(1).then((newCount) => {
+          updateCount({ data: { addBy: 1 } }).then((newCount) => {
             setCount(newCount);
           });
         }}

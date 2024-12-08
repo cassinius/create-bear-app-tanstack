@@ -23,19 +23,20 @@ export const Route = createRootRoute({
     links: [{ rel: "stylesheet", href: appCss }],
     scripts: import.meta.env.DEV
       ? [
-          {
-            type: "module",
-            children: `
+        {
+          type: "module",
+          children: `
                 import RefreshRuntime from "/_build/@react-refresh";
                 RefreshRuntime.injectIntoGlobalHook(window);
                 window.$RefreshReg$ = () => {};
                 window.$RefreshSig$ = () => (type) => type;
               `,
-          },
-        ]
+        },
+      ]
       : [],
   }),
   notFoundComponent: () => <div className="text-6xl text-red-500 font-bold text-center my-[40%]">404 Not Found</div>,
+  errorComponent: () => <div className="text-6xl text-red-500 font-bold text-center my-[40%]">500 Something went wrong.</div>,
 });
 
 function RootComponent() {

@@ -103,5 +103,10 @@
       "icon": "square-fill"
     }
   },
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "cSpell.words": [
+    "eventsource",
+    "pocketbase",
+    "vinxi"
+  ]
 }
