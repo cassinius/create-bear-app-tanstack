@@ -1,21 +1,20 @@
 import * as fs from "node:fs";
-import { createServerFn } from "@tanstack/start";
 import { useState } from "react";
+import { createServerFn } from "@tanstack/start";
+import { z } from "zod";
 
 const filePath = "count.txt";
 
-type CountData = {
-  addBy: number;
-}
+const CountData = z.object({
+  addBy: z.number(),
+});
 
 async function readCount() {
-  return parseInt(
-    await fs.promises.readFile(filePath, "utf-8").catch(() => "0")
-  );
+  return parseInt(await fs.promises.readFile(filePath, "utf-8").catch(() => "0"));
 }
 
 const updateCount = createServerFn({ method: "POST" })
-  .validator((countData: unknown): CountData => countData as CountData)
+  .validator((countData: unknown) => CountData.parse(countData))
   .handler(async ({ data }) => {
     const count = await readCount();
     await fs.promises.writeFile(filePath, `${count + data.addBy}`);

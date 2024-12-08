@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
-import { pb } from "@/db/pb";
+import { getPb } from "@/db/pb";
 
 export const Route = createFileRoute("/pbtest")({
   component: PocketUsers,
@@ -10,23 +10,18 @@ export const Route = createFileRoute("/pbtest")({
 
 // TODO - we probably need to be authenticated for this to work.
 const getPbUsers = createServerFn({ method: "GET" }).handler(async () => {
-  const users = await pb.collection("users").getList();
+  const users = await getPb().collection("users").getList();
   console.log({ users }, users.items.length);
   return users;
 });
 
 const getPbHealth = createServerFn({ method: "GET" }).handler(async () => {
-  const health = await pb.health.check();
+  const health = await getPb().health.check();
   return health;
 });
 
 export default function PocketUsers() {
   const health = Route.useLoaderData();
-
-  // const [health, setHealth] = useState<any>(null);
-  // useEffect(() => {
-  //   getPbHealth().then((health) => setHealth(health));
-  // }, []);
 
   return (
     <div className="pb-users p-4">

@@ -3,4 +3,11 @@ import eventsource from "eventsource";
 
 global.EventSource = eventsource;
 
-export const pb = new PocketBase("http://localhost:2511");
+let pb: PocketBase = null!;
+
+export function getPb() {
+  if (!pb) {
+    pb = new PocketBase("http://localhost:2511");
+  }
+  return pb;
+}
