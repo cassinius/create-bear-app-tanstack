@@ -1,5 +1,5 @@
-import { atom } from "jotai";
+import { atom } from "xoid";
 
-export const countAtom = atom(-42);
+export const $count = atom(-42);
 
-export const countTwiceAtom = atom((get) => get(countAtom) * 2);
+export const $doubleCount = atom((get) => get($count) * 2);

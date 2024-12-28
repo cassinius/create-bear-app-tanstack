@@ -1,7 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { useAtomValue } from "jotai";
+import { useAtom } from "@xoid/react";
 
-import { countTwiceAtom } from "@/stores/counter";
+import { $doubleCount } from "@/stores/counter";
 import CounterServer from "@/components/CounterServer";
 import CounterClient from "@/components/CounterClient";
 
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   // const router = useRouter();
   // const state = Route.useLoaderData();
-  const countTwice = useAtomValue(countTwiceAtom);
+  const countTwice = useAtom($doubleCount);
 
   return (
     <div className="p-2">

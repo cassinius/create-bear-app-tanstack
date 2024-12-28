@@ -1,8 +1,10 @@
-import { useAtom } from "jotai";
-import { countAtom } from "@/stores/counter";
+import { $count } from "@/stores/counter";
+import { useAtom } from "@xoid/react";
 
 export default function ClientCounter({ increment = true }) {
-  const [count, setCount] = useAtom(countAtom);
+  const count = useAtom($count);
+
+  const setNewCount = () => (increment ? $count.value++ : $count.value--);
 
   return (
     <div className="mt-4">
@@ -10,15 +12,7 @@ export default function ClientCounter({ increment = true }) {
 
       <div className="flex flex-row justify-start align-middle">
         <div className="p-2 text-lg text-info font-bold">{count}</div>
-        <button
-          type="button"
-          className="btn btn-info btn-outline"
-          onClick={() => {
-            setCount((c) => (increment ? c + 1 : c - 1));
-            // NOTE: works in this scenario, count is not 'frozen' in the closure..!?
-            // setCount(increment ? count + 1 : count - 1);
-          }}
-        >
+        <button type="button" className="btn btn-info btn-outline" onClick={setNewCount}>
           {increment ? "+" : " -"}
         </button>
       </div>
