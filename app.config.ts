@@ -1,6 +1,7 @@
 // this is for instructing Vinxi to start TanStack Start's "minimal" behavior
 import { defineConfig } from "@tanstack/start/config";
 import tsConfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   // tsr: {
@@ -11,6 +12,7 @@ export default defineConfig({
   // },
   vite: {
     plugins: [
+      // tailwindcss(),
       tsConfigPaths({
         root: "./",
         // projects: ["./tsconfig.json"],

@@ -1,6 +1,5 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useAtom } from "@xoid/react";
-
 import { $doubleCount } from "@/stores/counter";
 import CounterServer from "@/components/CounterServer";
 import CounterClient from "@/components/CounterClient";
@@ -17,9 +16,7 @@ function Index() {
 
   return (
     <div className="p-2">
-      <h1 className="app-wrap text-3xl text-info">
-        The bear is alive and steppin' for a fight!
-      </h1>
+      <h1 className="app-wrap text-3xl text-info">Don't wake the Bear !!</h1>
 
       <CounterServer />
 
