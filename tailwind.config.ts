@@ -6,7 +6,7 @@ export default {
   darkMode: ["class"],
   content: ["./app/**/*.tsx"],
   plugins: [tailwindcssAnimate],
-  // daisyui: {
-  //   themes: ["dim", "cupcake"]
-  // }
+  daisyui: {
+    themes: ["dim", "cupcake"]
+  }
 } satisfies Config;
