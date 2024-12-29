@@ -8,7 +8,7 @@ export default function ClientCounter({ increment = true }) {
 
   return (
     <div className="mt-4">
-      <p className="text-lg text-slate-200">Client-side +/- counter (in-memory)</p>
+      <p className="text-lg">Client-side +/- counter (in-memory)</p>
 
       <div className="flex flex-row justify-start align-middle">
         <div className="p-2 text-lg text-info font-bold">{count}</div>

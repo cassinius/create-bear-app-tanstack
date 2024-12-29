@@ -17,7 +17,9 @@ function Index() {
 
   return (
     <div className="p-2">
-      <h1 className="app-wrap text-3xl text-info">The bear is alive and steppin' for a fight!</h1>
+      <h1 className="app-wrap text-3xl text-info">
+        The bear is alive and steppin' for a fight!
+      </h1>
 
       <CounterServer />
 
@@ -25,7 +27,9 @@ function Index() {
 
       <CounterClient increment={false} />
 
-      <p className="mt-4 text-warning italic font-semibold">Twice the count: {countTwice}</p>
+      <p className="mt-4 text-warning italic font-semibold">
+        Twice the count: {countTwice}
+      </p>
 
       <p className="mt-4">
         <a href="/pbtest" className="text-primary underline">

@@ -2,10 +2,7 @@ module pb-bear
 
 go 1.23.2
 
-require (
-	github.com/labstack/echo/v5 v5.0.0-20230722203903-ec5b858dab61
-	github.com/pocketbase/pocketbase v0.23.12
-)
+require github.com/pocketbase/pocketbase v0.23.12
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7 // indirect
