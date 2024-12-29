@@ -5,8 +5,8 @@ import daisyUi from "daisyui";
 export default {
   darkMode: ["class"],
   content: ["./app/**/*.tsx"],
-  plugins: [tailwindcssAnimate, daisyUi],
-  daisyui: {
-    themes: ["dim", "cupcake"]
-  }
+  plugins: [tailwindcssAnimate],
+  // daisyui: {
+  //   themes: ["dim", "cupcake"]
+  // }
 } satisfies Config;
