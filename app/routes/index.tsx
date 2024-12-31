@@ -16,7 +16,7 @@ function Index() {
 
   return (
     <div className="p-2">
-      <h1 className="app-wrap text-3xl text-info">Don't wake the Bear !!</h1>
+      <h1 className="app-wrap text-3xl gradient-text">Don't wake the Bear !!</h1>
 
       <CounterServer />
 

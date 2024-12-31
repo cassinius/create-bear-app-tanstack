@@ -1,6 +1,6 @@
 {
   "name": "create-b-app",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "type": "module",
   "bin": {
     "create-b-app": "./tasks/create-b-app.js"
@@ -21,8 +21,8 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.0-beta.8",
     "@tailwindcss/vite": "^4.0.0-beta.8",
-    "@tanstack/react-router": "^1.92.9",
-    "@tanstack/start": "^1.92.10",
+    "@tanstack/react-router": "^1.92.11",
+    "@tanstack/start": "^1.92.11",
     "@tanstack/start-vite-plugin": "^1.91.1",
     "@xoid/react": "^1.0.0-beta.12",
     "eventsource": "^2.0.2",
@@ -41,7 +41,7 @@
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
-    "daisyui": "^5.0.0-alpha.58",
+    "daisyui": "^5.0.0-beta.1",
     "jsdom": "^25.0.1",
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0-beta.8",
