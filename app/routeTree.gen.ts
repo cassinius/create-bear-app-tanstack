@@ -10,85 +10,104 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as PbtestImport } from "./routes/pbtest";
-import { Route as IndexImport } from "./routes/index";
+import { Route as rootRoute } from './routes/__root'
+import { Route as PbtestImport } from './routes/pbtest'
+import { Route as ChatsImport } from './routes/chats'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
 const PbtestRoute = PbtestImport.update({
-  id: "/pbtest",
-  path: "/pbtest",
+  id: '/pbtest',
+  path: '/pbtest',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const ChatsRoute = ChatsImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/pbtest": {
-      id: "/pbtest";
-      path: "/pbtest";
-      fullPath: "/pbtest";
-      preLoaderRoute: typeof PbtestImport;
-      parentRoute: typeof rootRoute;
-    };
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/chats': {
+      id: '/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof ChatsImport
+      parentRoute: typeof rootRoute
+    }
+    '/pbtest': {
+      id: '/pbtest'
+      path: '/pbtest'
+      fullPath: '/pbtest'
+      preLoaderRoute: typeof PbtestImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/pbtest": typeof PbtestRoute;
+  '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/pbtest': typeof PbtestRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/pbtest": typeof PbtestRoute;
+  '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/pbtest': typeof PbtestRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
-  "/pbtest": typeof PbtestRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/chats': typeof ChatsRoute
+  '/pbtest': typeof PbtestRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/pbtest";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/pbtest";
-  id: "__root__" | "/" | "/pbtest";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/chats' | '/pbtest'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/chats' | '/pbtest'
+  id: '__root__' | '/' | '/chats' | '/pbtest'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  PbtestRoute: typeof PbtestRoute;
+  IndexRoute: typeof IndexRoute
+  ChatsRoute: typeof ChatsRoute
+  PbtestRoute: typeof PbtestRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatsRoute: ChatsRoute,
   PbtestRoute: PbtestRoute,
-};
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -97,11 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/chats",
         "/pbtest"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/chats": {
+      "filePath": "chats.tsx"
     },
     "/pbtest": {
       "filePath": "pbtest.tsx"
