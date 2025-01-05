@@ -15,7 +15,7 @@
     "pm2:deploy": "PORT=2512 pm2 start -i max --name=create-b-app .output/server/index.mjs",
     "pb:build": "cd backend && CGO_ENABLED=0 go build",
     "pb:gentypes": "pocketbase-typegen --db backend/pb_data/data.db --out app/types/pocketbase-types.ts",
-    "pb:dev": "npm run pb:build && npm run pb:gentypes && ./backend/pb-bear serve --http 127.0.0.1:2511",
+    "pb:dev": "npm run pb:build && npm run pb:gentypes && ./backend/pb-bear serve --http localhost:2511",
     "pb:start": "npm run pb:build && cd backend && docker compose up -d --build pb-bear",
     "pb:stop": "cd backend && docker compose down"
   },
