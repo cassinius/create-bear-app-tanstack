@@ -16,7 +16,7 @@
     "pb:build": "cd backend && CGO_ENABLED=0 go build",
     "pb:gentypes": "pocketbase-typegen --db backend/pb_data/data.db --out app/types/pocketbase-types.ts",
     "pb:dev": "npm run pb:build && npm run pb:gentypes && ./backend/pb-bear serve --http localhost:2511",
-    "pb:start": "npm run pb:build && cd backend && docker compose up -d --build pb-bear",
+    "pb:deploy": "npm run pb:build && cd backend && docker compose up -d --build pb-bear",
     "pb:stop": "cd backend && docker compose down"
   },
   "dependencies": {
@@ -27,7 +27,7 @@
     "@tanstack/start-vite-plugin": "^1.91.1",
     "@xoid/react": "^1.0.0-beta.12",
     "eventsource": "^2.0.2",
-    "pocketbase": "^0.21.5",
+    "pocketbase": "^0.25.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rimraf": "^6.0.1",
