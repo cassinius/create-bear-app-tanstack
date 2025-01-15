@@ -92,7 +92,7 @@ export type ChatsRecord = {
 	id: string
 	title?: string
 	updated?: IsoDateString
-	users?: RecordIdString[]
+	users: RecordIdString[]
 }
 
 export type MessagesRecord = {
