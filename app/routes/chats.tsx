@@ -7,32 +7,41 @@ import { ListResult } from "pocketbase";
 
 export const Route = createFileRoute("/chats")({
   component: PocketChats,
+  ssr: false,
   // loader: async () => getPbChats(),
 });
 
 export default function PocketChats() {
   const [chats, setChats] = useState<ChatsResponse[]>([]);
 
-  const getChatWithUsers = useCallback(async () => {
-    // const chatResponse = await getPb().collection("chats").getFullList<ChatsResponse>(200, {
-    //   sort: "created",
-    //   expand: "users",
-    //   // filter: `users ~ '${$currentUser.id}'`,
-    // });
+  const getChatWithUsers = async () => {
+    const chatResponse = await getPb().collection("chats").getFullList<ChatsResponse>(200, {
+      sort: "created",
+      expand: "users",
+      // filter: `users ~ '${$currentUser.id}'`,
+    });
 
-    const response = await fetch("http://localhost:2511/api/collections/chats/records");
-    const chatResponse = (await response.json()) as ListResult<ChatsResponse>;
+    // const response = await fetch("http://localhost:2511/api/collections/chats/records");
+    // const chatResponse = (await response.json()) as ListResult<ChatsResponse>;
+
     console.log({ chatResponse });
 
-    setChats(chatResponse.items);
-  }, []);
+    setChats(chatResponse);
+  };
 
   useEffect(() => {
     getChatWithUsers().catch((err) => console.error(err));
 
-    // return () => {
-    //   getPb().collection("chats").unsubscribe();
-    // };
+    getPb()
+      .collection("chats")
+      .subscribe("*", (data) => {
+        console.log({ data });
+        getChatWithUsers().catch((err) => console.error(err));
+      });
+
+    return () => {
+      getPb().collection("chats").unsubscribe();
+    };
   }, []);
 
   return (
